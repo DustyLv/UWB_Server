@@ -1,0 +1,15 @@
+https://answers.unity.com/questions/1420229/how-to-create-server-using-photon-network.html
+https://doc.photonengine.com/en-us/server/current/plugins/manual
+
+https://doc.photonengine.com/en-us/pun/v2/demos-and-tutorials/pun-basics-tutorial/lobby
+
+
+https://doc.photonengine.com/en-us/server/current/getting-started/photon-server-in-5min
+
+https://forum.photonengine.com/discussion/6237/lan-with-pun ^^^
+
+
+____
+Console server:
+
+https://www.youtube.com/channel/UCa-mDKzV5MW_BXjSDRqqHUw/videos

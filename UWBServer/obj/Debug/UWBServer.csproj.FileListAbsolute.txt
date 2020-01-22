@@ -1,0 +1,7 @@
+D:\Dev\VisualStudio Projects\UWBServer\UWBServer\bin\Debug\UWBServer.exe.config
+D:\Dev\VisualStudio Projects\UWBServer\UWBServer\bin\Debug\UWBServer.exe
+D:\Dev\VisualStudio Projects\UWBServer\UWBServer\bin\Debug\UWBServer.pdb
+D:\Dev\VisualStudio Projects\UWBServer\UWBServer\obj\Debug\UWBServer.csprojAssemblyReference.cache
+D:\Dev\VisualStudio Projects\UWBServer\UWBServer\obj\Debug\UWBServer.csproj.CoreCompileInputs.cache
+D:\Dev\VisualStudio Projects\UWBServer\UWBServer\obj\Debug\UWBServer.exe
+D:\Dev\VisualStudio Projects\UWBServer\UWBServer\obj\Debug\UWBServer.pdb
