@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
+  - enabled: 1
+    path: Assets/Scenes/UWBServer.unity
+    guid: 8c6c2ac7f5274eb4189d540318f87bfa
+  - enabled: 0
+    path: Assets/Scenes/UWB_Client.unity
+    guid: 897706bc2d2a2084c889fe1e52d17da2
   m_configObjects: {}
