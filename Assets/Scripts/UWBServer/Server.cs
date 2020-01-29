@@ -129,6 +129,7 @@ public class Server
             {
                 { (int)ClientPackets.welcomeReceived, ServerHandle.WelcomeReceived },
                 { (int)ClientPackets.playerMovement, ServerHandle.PlayerMovement },
+                { (int)ClientPackets.uwbData, ServerHandle.UpdateUWBData }
             };
         Debug.Log("Initialized packets.");
     }

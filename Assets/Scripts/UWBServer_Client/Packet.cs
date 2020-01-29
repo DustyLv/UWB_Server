@@ -13,7 +13,8 @@ namespace UWBServer_Client
         spawnPlayer,
         playerPosition,
         playerRotation,
-        jsonData
+        jsonData,
+        uwbData
     }
 
     /// <summary>Sent from client to server.</summary>

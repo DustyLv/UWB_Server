@@ -23,6 +23,7 @@ public class UDPReceiver : MonoBehaviour
     //public string allReceivedPackets = ""; // this one has to be cleaned up from time to time
 
     public JSONDistributor distributor;
+    public JSONWorker worker;
 
     // start from unity3d
     void Start()
@@ -76,7 +77,9 @@ public class UDPReceiver : MonoBehaviour
 
                 // show received message
                 //print(">> " + text);
-                distributor.DistributeDataToClients(text);
+
+                //distributor.DistributeDataToClients(text);
+                worker.JsonToObject(text);
 
                 // store new massage as latest message
                 lastReceivedPacket = text;

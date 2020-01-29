@@ -130,7 +130,7 @@ public class ServerSend
     }
 
     /// <summary>Sends received UWB tag JSON data to all clients.</summary>
-    /// <param name="_player">The player whose position to update.</param>
+    /// <param name="_msg">JSON data string.</param>
     public static void JsonDataToAll(string _msg)
     {
         using (Packet _packet = new Packet((int)ServerPackets.jsonData))
@@ -138,6 +138,30 @@ public class ServerSend
             _packet.Write(_msg);  
 
             SendTCPDataToAll(_packet);
+        }
+    }
+
+    /// <summary>Sends updated UWBObject data to all clients.</summary>
+    /// <param name="_msg">Serialized UWBObject data string.</param>
+    public static void UWBObjectData(string _msg)
+    {
+        using (Packet _packet = new Packet((int)ServerPackets.uwbData))
+        {
+            _packet.Write(_msg);
+
+            SendTCPDataToAll(_packet);
+        }
+    }
+
+    public static void UWBObjectDataExcludeUser(int _excludeID, string _msg)
+    {
+        Debug.Log($"Sending UWB Data to users, exluding use {_excludeID}");
+        using (Packet _packet = new Packet((int)ServerPackets.uwbData))
+        {
+            _packet.Write(_msg);
+
+            SendTCPDataToAll(_excludeID, _packet);
+            
         }
     }
     #endregion

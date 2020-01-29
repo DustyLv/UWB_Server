@@ -1,0 +1,44 @@
+servera un klienta timestep (tick rate) jābūt vienādam (Edit -> Project Settings -> Time)
+	serverim uzstādīts 0,0166666 timestep (60 tick rate) (1/60 = 0,0166666)
+	
+target frame rate arī vajadzētu uzstādīt uz 60 (iekš NetworkManager skripta)
+
+Buildojot serveri, ieķeksēt 'Server Build' iekš build settings (klientam nē)
+
+
+
+Klienta app: (idejiski tas pats arī servera app)
+ClientHandle.cs <-> Client.cs
+Metodes ko izsauc pie noteiktiem Client PacketHandler'iem (
+
+
+
+
+
+
+
+=--DATA FLOW--=
+
+	UWBData: Server -> Client
+		1) UWBObject.cs:UpdateObjectPosition() -> UWBObjectSync.cs:SendUpdateToClients() <SEND>> ClientHandle.cs:UWBData() -> UWBObjectManager.cs:UpdateUWBObject() -> UWBObjectSync.cs:UpdateSettingsFromServer()
+		2) Loopback from UWBData: Client -> Server 1) : UWBObjectSync.cs:UpdateSettingsFromClient() -> ServerSend.cs:UWBObjectDataExcludeUser() <SEND>> ..
+	
+	UWBData: Client -> Server
+		//UWBObject.cs: 
+		1) ObjectTransformController.cs:FixedUpdate() ->  UWBObjectManager.cs:SendUpdatedActiveObjectsSettingsToServer() -> UWBObjectSync.cs:SendUpdateToServer() <SEND>> ServerHandle.cs:UpdateUWBData() -> UWBObjectSync.cs:UpdateSettingsFromClient()
+		2) ActiveUWBObjectOutputUI.cs: 
+			ToggleInvert<axis>() -> UWBObjectManager.cs:SendUpdatedActiveObjectsSettingsToServer() -> .. <SEND>> ..
+			SetOverrideOnObject_<axis>() -> UWBObjectManager.cs:SendUpdatedActiveObjectsSettingsToServer() -> .. <SEND>> ..
+			SetOffsetValue<axis>() -> UWBObjectManager.cs:SendUpdatedActiveObjectsSettingsToServer() -> .. <SEND>> ..
+		
+	
+=--TODO--=
+
+	- Avataru nomaiņa
+	- Statiskie objekti (pievienošana, pārvietošana, etc)
+		
+		
+=--TEST--=
+
+	- (Client: UWBObjectSync.cs:UpdateSettingsFromServer()) Klientam, pie jaunu UWB datu saņemšanas, update arī UI. Drošvien ActiveUWBObjectDataOutputUI.cs vai kkur jauna metode, kas checko vai klientam aktīvais objekts ir tas ko gribam updeitot.Ja ir (true),tad updeito; ja (false), tad carry on;
+	Mums galvenais ir updeitot aktīvo, jo to redz.. Pārējiem, kad tos iezīmēs UI iegūs attiecīgās vērtības no aktīvā objekta.

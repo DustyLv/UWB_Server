@@ -90,7 +90,7 @@ public class Client
             }
             catch (Exception _ex)
             {
-                Debug.Log($"Error receiving TCP data: {_ex}");
+                Debug.Log($"Error receiving TCP data: {_ex}, from user {id}");
                 Server.clients[id].Disconnect();
             }
         }

@@ -30,4 +30,21 @@ public class ServerHandle
 
         Server.clients[_fromClient].player.SetInput(_inputs, _rotation);
     }
+    public static void UpdateUWBData(int _fromClient, Packet _packet)
+    {
+        string _data = _packet.ReadString();
+        //Debug.Log($"New data {_data} from user <{_fromClient}>.");
+
+        UWBObjectData data = UWBObjectSerializer.instance.Deserialize(_data);
+
+        //if (!UWBObjectManager.SceneHasObjectWithAddress(_newUWBObject.UWBAddress))
+        //{
+        //    CreateNewUWBObject(_newUWBObject.UWBAddress);
+        //}
+
+        UWBObjectSync.instance.UpdateSettingsFromClient(_fromClient, UWBObjectManager.i.FindObjectByAddress(data.UWBAddress), data);
+
+
+        //UWBObjectSync.instance.UpdateSettingsFromClient();
+    }
 }

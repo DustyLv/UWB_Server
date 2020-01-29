@@ -303,7 +303,8 @@ namespace UWBServer_Client
             { (int)ServerPackets.spawnPlayer, ClientHandle.SpawnPlayer },
             { (int)ServerPackets.playerPosition, ClientHandle.PlayerPosition },
             { (int)ServerPackets.playerRotation, ClientHandle.PlayerRotation },
-            { (int)ServerPackets.jsonData, ClientHandle.JsonData}
+            { (int)ServerPackets.jsonData, ClientHandle.JsonData }
+            //{ (int)ServerPackets.uwbData, ClientHandle. }
         };
             Debug.Log("Initialized packets.");
         }
